@@ -53,7 +53,7 @@ define(['jquery',
 
                     quote.billingAddress.subscribe(function (newAddress) {
 
-                        if(newAddress) {
+                        if(newAddress && !newAddress.city.length) {
                             let shippingCityId = $("#shipping-new-address-form [name = 'city_id'] option:selected"),
                                 shippingCityIdValue = shippingCityId.text();
                             let billingAddressCity = $(".billing-address-form form [name='city_id'] option:selected");
