@@ -59,7 +59,9 @@ define(['jquery',
                             let billingAddressCity = $(".billing-address-form form [name='city_id'] option:selected");
 
 
-                            newAddress.city = shippingCityIdValue ? shippingCityIdValue : newAddress.city;
+                            if (shippingCityIdValue) {
+                                newAddress.city = shippingCityIdValue;
+                            }
                             if (!this.isAddressSameAsShipping() && billingAddressCity && billingAddressCity.text()) {
                                 newAddress.city = billingAddressCity.text();
                             }
